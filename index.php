@@ -31,7 +31,7 @@ require_once("db.php");
         <?php
         $sql = "SELECT * FROM `concerto`;";
         $rec = mysqli_query($db_remoto, $sql) or die($sql . "<br>" . mysqli_error($db_remoto));
-        echo "<div class='row mt4'>";
+        echo "<div class='row mt-4'>";
         while ($array = mysqli_fetch_array($rec)) {
             $id = $array['id'];
             $band = $array['band'];
@@ -45,15 +45,15 @@ require_once("db.php");
             if ($posti <= 0) {
                 $posti_class = "bg-danger";
             }
-            echo "<div class='col'>";
-            echo "<div class='card mx-auto' style='width: 25rem;'>";
+            echo "<div class='col mt-4'>";
+            echo "<div class='card h-100 mx-auto' style='width: 25rem;'>";
 
             echo "<img src=" . $bandimg . " class='card-img-top'>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title'>" . $band . "</h5>";
             echo "<h6 class='card-subtitle mb-2 text-muted'>" . $data . "</h6>";
             echo "<p class='card-text'>" . $band_desc . "</p>";
-            echo "<a href='prenotazione.php?id_concerto=" . $id . "' class='btn btn-dark'>Prenota</a><br>";
+            echo "<a href='prenotazione.php?data=" . $data . "&id_concerto=" . $id . "' class='btn btn-dark'>Prenota</a><br>";
             echo "<span class='badge rounded-pill " . $posti_class . "'>Posti disponibili: " . $posti . "</span>";
             echo "</div>";
             echo "</div>";
