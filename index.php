@@ -10,6 +10,12 @@ require_once("db.php");
     a:active {
         text-decoration: none;
     }
+
+    .card-img-top {
+        width: 100%;
+        height: 27vw;
+        object-fit: cover;
+    }
 </style>
 
 <head>
@@ -46,9 +52,9 @@ require_once("db.php");
                 $posti_class = "bg-danger";
             }
             echo "<div class='col mt-4'>";
-            echo "<div class='card h-100 mx-auto' style='width: 25rem;'>";
+            echo "<div class='card h-100 mx-auto' style='width: 30rem;'>";
 
-            echo "<img src=" . $bandimg . " class='card-img-top'>";
+            echo "<img src=" . $bandimg . " class='card-img-top' >";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title'>" . $band . "</h5>";
             echo "<h6 class='card-subtitle mb-2 text-muted'>" . $data . "</h6>";
