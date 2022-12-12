@@ -102,7 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
                 <?php } else {
                     echo "<h1>" . $messaggio . "</h1>";
-                    echo $date_libere;
+                    if(isset($date_libere)){
+                    echo $date_libere;}
                 } ?>
             </div>
         </div>
