@@ -36,8 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         if ($query_posti_ok && mysqli_query($db_remoto, $sql)) {
-            $messaggio = "Prenotazione effetuata <a  href='creapdf.php'>Scarica Biglietto in PDF</a> <br>";
-            $messaggio .= "Torna alla <a  href='index.php'>Homepage</a> <br>";
+            $messaggio .= "Prenotazione effettuata, torna alla <a  href='index.php'>Homepage</a> <br>";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($db_remoto);
         }
@@ -54,14 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $messaggio = "Non ci sono posti disponibili, vuoi prenotare la data succesiva?";
     }
-
-
 }
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -95,22 +88,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="hidden" name="id_concerto" value="<?php echo $id_concerto ?>">
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control username" placeholder="Nome" name="nome_utente">
+                        <input type="text" class="form-control username" placeholder="Nome" name="nome_utente" required>
                     </div>
                     <div class="form-group">
                         <label for="nome">Cognome</label>
-                        <input type="text" class="form-control username" placeholder="Cognome" name="cognome_utente">
+                        <input type="text" class="form-control username" placeholder="Cognome" name="cognome_utente" required>
                     </div>
                     <div class="form-group">
                         <label for="nome">Mail</label>
-                        <input type="mail" class="form-control username" placeholder="Mail" name="mail_utente">
+                        <input type="email" class="form-control username" placeholder="Mail" name="mail_utente" required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-customized mt-4">Prenota</button>
+                    <button type="submit" class="btn btn-dark btn-customized mt-4">Prenota</button>
                 </form>
                 <?php } else {
                     echo "<h1>" . $messaggio . "</h1>";
                     echo $date_libere;
-
                 } ?>
             </div>
         </div>
